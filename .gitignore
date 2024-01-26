@@ -1,0 +1,12 @@
+*.code-workspace
+
+node_modules
+artifacts
+cache
+typechain-types
+
+proofs
+build
+
+target
+bin

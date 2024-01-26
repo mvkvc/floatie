@@ -15,11 +15,27 @@
     <header class="flex flex-row justify-between items-center p-8 text-xl">
       <a href={~p"/"} class="text-3xl font-semibold italic">Floatie</a>
       <ul class="flex flex-row space-x-4">
-
-        <%= if @current_user do %>
+       <%= if @current_user do %>
           <li>
-            <%= @current_user.eth_address %>
+            <%= Floatie.Accounts.truncate_address(@current_user.eth_address) %>
           </li>
+      <% end %>
+        <li>
+          <.link href={~p"/app"} class="btn">
+            App
+          </.link>
+        </li>
+        <li>
+          <.link href={~p"/bank"} class="btn">
+            Bank
+          </.link>
+        </li>
+        <li>
+          <.link href={~p"/sets"} class="btn">
+            Sets
+          </.link>
+        </li>
+        <%= if @current_user do %>
           <li>
             <.link href={~p"/users/settings"} class="btn">
               Settings
@@ -32,7 +48,7 @@
           </li>
         <% else %>
           <li>
-            <%= live_render(@conn, FloatieWeb.WalletLoginLive,
+            <%= live_render(@conn, FloatieWeb.WalletLive,
               id: "connect",
               session: %{"id" => "metamask-login"}
             ) %>

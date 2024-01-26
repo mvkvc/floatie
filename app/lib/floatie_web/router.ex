@@ -68,6 +68,9 @@ defmodule FloatieWeb.Router do
       on_mount: [{FloatieWeb.UserAuth, :ensure_authenticated}] do
       live "/users/settings", UserSettingsLive, :edit
       live "/users/settings/confirm_email/:token", UserSettingsLive, :confirm_email
+      live "/app", AppLive, :index
+      live "/bank", BankLive, :index
+      live "/sets", SetsLive, :index
     end
   end
 

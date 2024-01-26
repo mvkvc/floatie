@@ -74,7 +74,11 @@ defmodule Floatie.MixProject do
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
-      "assets.setup": ["cmd npm i -D --prefix assets","tailwind.install --if-missing", "esbuild.install --if-missing"],
+      "assets.setup": [
+        "cmd npm i -D --prefix assets",
+        "tailwind.install --if-missing",
+        "esbuild.install --if-missing"
+      ],
       "assets.build": ["tailwind default", "esbuild default"],
       "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"]
     ]
@@ -88,7 +92,7 @@ defmodule Floatie.MixProject do
           targets: [
             # macos: [os: :darwin, cpu: :x86_64],
             # macos_m1: [os: :darwin, cpu: :aarch64],
-            linux: [os: :linux, cpu: :x86_64],
+            linux: [os: :linux, cpu: :x86_64]
             # linux_aarch64: [os: :linux, cpu: :aarch64],
             # windows: [os: :windows, cpu: :x86_64]
           ],

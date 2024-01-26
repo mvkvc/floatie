@@ -11,8 +11,7 @@ defmodule Floatie.Application do
       FloatieWeb.Telemetry,
       Floatie.Repo,
       {Ecto.Migrator,
-        repos: Application.fetch_env!(:floatie, :ecto_repos),
-        skip: skip_migrations?()},
+       repos: Application.fetch_env!(:floatie, :ecto_repos), skip: skip_migrations?()},
       {DNSCluster, query: Application.get_env(:floatie, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Floatie.PubSub},
       # Start the Finch HTTP client for sending emails

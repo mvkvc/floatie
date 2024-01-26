@@ -81,8 +81,7 @@ defmodule FloatieWeb.UserSettingsLive do
 
         info = "A link to confirm your email change has been sent to the new address."
 
-        {:noreply,
-         socket |> put_flash(:success, info)}
+        {:noreply, socket |> put_flash(:success, info)}
 
       {:error, changeset} ->
         {:noreply, assign(socket, :email_form, to_form(Map.put(changeset, :action, :insert)))}

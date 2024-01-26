@@ -22,11 +22,11 @@ config :floatie, FloatieWeb.Endpoint, server: true
 
 if config_env() == :prod do
   database_path = Path.expand("~/.floatie/floatie.db")
-    # System.get_env("DATABASE_PATH") ||
-    #   raise """
-    #   environment variable DATABASE_PATH is missing.
-    #   For example: /etc/floatie/floatie.db
-    #   """
+  # System.get_env("DATABASE_PATH") ||
+  #   raise """
+  #   environment variable DATABASE_PATH is missing.
+  #   For example: /etc/floatie/floatie.db
+  #   """
 
   config :floatie, Floatie.Repo,
     database: database_path,
@@ -38,11 +38,11 @@ if config_env() == :prod do
   # to check this value into version control, so we use an environment
   # variable instead.
   secret_key_base = "JaKLXtaY4LWrGU3dZpkiC4OlWsK1efuXgM/iVe+o26w2W5+z7dPm8BH06ABzzF5+"
-    # System.get_env("SECRET_KEY_BASE") ||
-    #   raise """
-    #   environment variable SECRET_KEY_BASE is missing.
-    #   You can generate one by calling: mix phx.gen.secret
-    #   """
+  # System.get_env("SECRET_KEY_BASE") ||
+  #   raise """
+  #   environment variable SECRET_KEY_BASE is missing.
+  #   You can generate one by calling: mix phx.gen.secret
+  #   """
 
   host = System.get_env("PHX_HOST") || "localhost"
   port = String.to_integer(System.get_env("PORT") || "4000")

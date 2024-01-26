@@ -8,6 +8,13 @@ defmodule Floatie.Accounts do
 
   alias Floatie.Accounts.{User, UserToken, UserNotifier}
 
+  def truncate_address(address, showing \\ 6) do
+    chars = String.split(address, "", trim: true)
+    h =  Enum.take(chars, showing) |> Enum.join()
+    t = Enum.take(chars, -showing) |> Enum.join()
+    h <> "..." <> t
+  end
+
   def get_user_by_eth_address(nil), do: nil
   def get_user_by_eth_address(eth_address), do: Repo.get_by(User, eth_address: eth_address)
 
